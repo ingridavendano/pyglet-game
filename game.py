@@ -57,95 +57,6 @@ class Character(GameElement):
 
 ####
 
-# class Rect(object):
-    
-#     def __init__(self, x, y, width, height):
-#         self._x, self._y = x, y
-#         self._width, self._height = width, height
-
-#     def set_x(self, value): self._x = value
-#     x = property(lambda self: self._x, set_x)
-#     def set_y(self, value): self._y = value
-#     y = property(lambda self: self._y, set_y)
-#     def set_width(self, value): self._width = value
-#     width = property(lambda self: self._width, set_width)
-#     def set_height(self, value): self._height = value
-#     height = property(lambda self: self._height, set_height)
-#     def set_pos(self, value): self._x, self._y = value
-#     pos = property(lambda self: (self._x, self._y), set_pos)
-#     def set_size(self, value): self._width, self._height = value
-#     size = property(lambda self: (self._width, self._height), set_size)
-
-#     def contains(self, x, y):
-#         if x < self._x or x > self._x + self._width: return False
-#         if y < self._y or y > self._y + self._height: return False
-#         return True
-
-#     def intersects(self, other):
-#         if self._x + self._width < other.x: return False
-#         if other.x + other.width < self._x: return False
-#         if self._y + self._height < other.y: return False
-#         if other.y + other.height < self._y: return False
-#         return True
-
-
-
-
-
-############
-# class Enemy(GameElement):
-#     SOLID = True
-#     IMAGE = "EnemyBug"
-
-#     def __init__(self):
-#         GameElement.__init__(self)
-#         self.dist=1
-
-#         self.xMove=1
-#         self.yMove=0
-
-#         self.direction=1
-#         self.nextdir=3
-#         self.xdir=[0,-self.dist,self.dist,0,0]
-#         self.ydir=[0,0,0,-self.dist,self.dist]
-#         # 
-
-#         # self.direction = random.randint(1,4)
-#         # self.dist = 3
-#         # self.moves = random.randint(2,5)
-#         # self.moveCount = 0;
-
-#     def update(self, block_group):
-#         self.xMove=self.xdir[self.nextdir]
-#         self.yMove=self.ydir[self.nextdir]
-
-#         self.rect.move_ip(self.xMove,self.yMove)
-
-#         if pyglet.sprite.spritecollide(self, block_group, False):
-#             self.rect.move_ip(-self.xMove,-self.yMove)
-
-#             self.xMove=self.xdir[self.direction]
-#             self.yMove=self.ydir[self.direction]
-#             self.rect.move_ip(self.xMove,self.yMove)
-
-#             if pyglet.sprite.spritecollide(self, block_group, False):
-#                 self.rect.move_ip(-self.xMove,-self.yMove)
-#                 if self.nextdir<3:
-#                     self.nextdir=randint(3,4)
-#                 else:
-#                     self.nextdir=randint(1,2)
-#         else:
-#             self.direction=self.nextdir
-#             if self.nextdir<3:
-#                 self.nextdir=randint(3,4)
-#             else:
-#                 self.nextdir=randint(1,2)
-
-
-
-       
-####
-
 class Gem(GameElement):
     IMAGE = "OrangeGem"
     SOLID = False
@@ -296,12 +207,6 @@ def initialize():
     GAME_BOARD.register(PLAYER2)
     GAME_BOARD.set_el(16, 8, PLAYER2)
     print PLAYER2
-
-    # global ENEMY
-    # ENEMY = Enemy()
-    # GAME_BOARD.register(ENEMY)
-    # GAME_BOARD.set_el(16, 8, ENEMY)
-    # print ENEMY
 
     global CURRENT_PLAYER
     CURRENT_PLAYER = PLAYER1
